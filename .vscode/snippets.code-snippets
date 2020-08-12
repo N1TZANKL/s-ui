@@ -96,5 +96,13 @@
             "",
             "export default withStyles(styles)(${NAME});"
         ]
+    },
+    "Fragment": {
+        "prefix": "fr",
+        "body": ["<>", "\t${1}", "</>"]
+    },
+    "TODO": {
+        "prefix": "todo",
+        "body": "//TODO: ${1}"
     }
 }
