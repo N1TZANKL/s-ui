@@ -97,6 +97,40 @@
             "export default withStyles(styles)(${NAME});"
         ]
     },
+    "Material-UI styled Error Boundary": {
+        "prefix": "muieb",
+        "body": [
+            "import React, { Component } from 'react';",
+            "import PropTypes from 'prop-types';",
+            "import { withStyles } from '@material-ui/core/styles';",
+            "",
+            "const styles = theme => ({});",
+            "",
+            "class ${NAME} extends Component {",
+            "",
+            "\tstate = { error: false };",
+            "",
+            "\tstatic getDerivedStateFromError(e) {",
+            "\t\treturn { error: e.message };",
+            "\t}",
+            "",
+            "\tcomponentDidCatch(e) {",
+            "\t\tconsole.log('UNCAUGHT ERROR:', e);",
+            "\t}",
+            "",
+            "\trender() {",
+            "",
+            "\t\tconst { classes } = this.props;",
+            "",
+            "\t\treturn this.state.error ? <div /> : this.props.children;",
+            "\t}",
+            "}",
+            "",
+            "${NAME}.propTypes = { children: PropTypes.node.isRequired, };",
+            "",
+            "export default withStyles(styles)(${NAME});"
+        ]
+    },
     "Fragment": {
         "prefix": "fr",
         "body": ["<>", "\t${1}", "</>"]
